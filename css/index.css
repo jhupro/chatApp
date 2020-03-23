@@ -21,6 +21,10 @@
     color: var(--col-bg-fg);
     font-family: var(--font-body);
   }
+  hr{
+    margin: 0em;
+  
+  }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
@@ -53,11 +57,12 @@
     z-index: 3;
     width: 100%;
     height: 100%;
-    padding: 0 1em;
     padding-top: 2.1875em;
   }
     .others .panel {
+      background-color: var(--col-bg-fg);
       overflow-y: scroll;
+      padding-bottom: 0.1em;
       opacity: 0;
       transition: opacity var(--animations);
     }
@@ -74,7 +79,7 @@
     color: var(--col-accent3-fg);
     position: fixed;
     top: 0.5em;
-    left: 1em;
+    left : 1em;
     line-height: 1.25;
     z-index: 4;
     padding: 0;
@@ -85,13 +90,32 @@
   
   .conversation {
     padding: 0 1em;
-    margin-top: 2.1875em;
+    margin-top: 3.7em;
+  }
+
+  .options{
+    
+    padding: 0.5em 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+
+  }
+  
+  .options a{
+    color: white;
+    text-decoration: none;
+  }
+  .options a:hover{
+    color: cornflowerblue;
+  }
+  .options span{
+    font-size: 2.5em;
+    vertical-align: text-top;
   }
   
   
-  
   @media screen and (min-width: 40em) {
-  
     .others {
       display: block;
       left: 0;
@@ -113,29 +137,23 @@
   
     .toggle-others {
       position: absolute;
-      top: 3em;
+      top: 2.2em;
       left: auto;
-      right: -1.5em;
-      width: 1.5em;
-      height: 5em;
+      right: -2.8em;
+      height: 1.5em;
       padding: 0.25em;
       text-align: center;
     }
-    .toggle-others span {
-      writing-mode: vertical-rl;
-    }
-    
   }
   
   
-  @media screen and (min-width: 60em) {
-  
-  
-  
+  @media screen and (min-width: 60em) {  
     .others {
       width: 30em;
+      transform: translateX(-30em);
     }
-    .conversation {
+    
+    .others.open ~ .conversation {
       margin-left: 30em;
     }
     
