@@ -1,1 +1,3 @@
-# chatApp
+# chatApp community Application
+
+## Group
