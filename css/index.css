@@ -54,8 +54,9 @@
     position: fixed;
     top: 0;
     left: -100%;
+    transition: left 2s;
     z-index: 3;
-    width: 100%;
+    width: 100%; 
     height: 100%;
     padding-top: 2.1875em;
   }
@@ -63,16 +64,12 @@
       background-color: var(--col-bg-fg);
       overflow-y: scroll;
       padding-bottom: 0.1em;
-      opacity: 0;
-      transition: opacity var(--animations);
+     
     }
   
   .others.open {
     left: 0;
   }
-    .others.open .panel {
-      opacity: 1;
-    }
   
   .toggle-others {
     background-color: var(--col-accent3);
@@ -89,22 +86,22 @@
   
   
   .conversation {
-    padding: 0 1em;
-    margin-top: 3.7em;
+    padding: 0;
+    position: relative;
   }
 
-  .options{
-    
-    padding: 0.5em 0;
+  .options{   
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     text-align: center;
-
   }
-  
+  .options li{
+    padding: 0.5em 1em;
+  }
   .options a{
     color: white;
     text-decoration: none;
+    
   }
   .options a:hover{
     color: cornflowerblue;
@@ -113,26 +110,40 @@
     font-size: 2.5em;
     vertical-align: text-top;
   }
+  .profile img{
+    width: 100%;
+    height: 45vh;
+  }
+  .profile p{
+    position: absolute;
+    left: 2em;
+    bottom: 3em;
+    color: white;
+    font-size: 1.5em;
+
+  }
   
   
   @media screen and (min-width: 40em) {
     .others {
       display: block;
       left: 0;
+      width: 5em;
       z-index: 1;
-      width: 20em;
       opacity: 1;
-      transform: translateX(-20em);
+      transform: translateX(-5em);
       transition: transform var(--animations);
     }
     .others.open {
+      width: 5em;
       transform: translateX(0em);
     }
     .conversation {
       transition: margin-left var(--animations);
     }
     .others.open ~ .conversation {
-      margin-left: 20em;
+      margin-left: 5em;
+      
     }
   
     .toggle-others {
@@ -144,17 +155,22 @@
       padding: 0.25em;
       text-align: center;
     }
+    .options{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    .options li{
+      padding-bottom: 0.25em;
+      border-bottom: 1px solid white;
+    }
+    .profile img{
+      height: 65vh;
+    }
   }
   
   
   @media screen and (min-width: 60em) {  
-    .others {
-      width: 30em;
-      transform: translateX(-30em);
-    }
     
-    .others.open ~ .conversation {
-      margin-left: 30em;
-    }
     
   }
